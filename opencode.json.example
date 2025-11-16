@@ -1,0 +1,64 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "playwright": {
+      "type": "local",
+      "command": ["pnpm", "dlx", "@playwright/mcp@latest"],
+      "enabled": true,
+      "timeout": 10000
+    },
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp", "--api-key", "{env:CONTEXT7_API_KEY}"],
+      "enabled": true,
+      "environment": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "nano-banana": {
+      "type": "local",
+      "command": ["npx", "-y", "gemini-imagen-mcp-server"],
+      "enabled": true,
+      "environment": {
+        "GEMINI_API_KEY": "{env:GEMINI_API_KEY}"
+      }
+    },
+    "dalle": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-openai"],
+      "enabled": false,
+      "environment": {
+        "OPENAI_API_KEY": "{env:OPENAI_API_KEY}"
+      }
+    },
+    "chunkhound": {
+      "type": "local",
+      "command": ["chunkhound", "mcp", "."],
+      "enabled": true
+    },
+    "docker": {
+      "type": "local",
+      "command": ["npx", "-y", "podman-mcp-server@latest"],
+      "enabled": false
+    },
+    "supabase": {
+      "type": "remote",
+      "url": "https://mcp.supabase.com/mcp?project_ref=ffvmitbetagzdbbjoeel",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:SUPABASE_ACCESS_TOKEN}"
+      }
+    }
+  },
+  "tools": {
+    "playwright_*": true,
+    "context7_*": true,
+    "nano-banana_*": true,
+    "dalle_*": false,
+    "chunkhound_*": true,
+    "docker_*": false
+  },
+  "instructions": [
+    "AGENTS.md"
+  ]
+}
