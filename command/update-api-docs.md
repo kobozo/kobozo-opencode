@@ -19,7 +19,7 @@ Updates existing API documentation to reflect code changes.
 3. Compare with existing OpenAPI spec
 4. Show diff of changes
 5. Update OpenAPI spec (openapi-generator)
-6. Update markdown docs (docs-writer)
+6. Update markdown docs (documentation-writer --type=api)
 7. Report what changed
 
 ## Important

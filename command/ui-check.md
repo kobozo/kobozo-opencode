@@ -19,7 +19,7 @@ Validate UI implementation against design system standards by:
 ## Workflow Overview
 
 This command coordinates two specialized agents:
-1. **playwright-tester** - Handles automation and screenshot capture
+1. **playwright-test-generator** (--type=ui-validation) - Handles automation and screenshot capture
 2. **ui-analyzer** - Analyzes screenshots against style guides
 
 ## Usage
@@ -66,7 +66,7 @@ This command coordinates two specialized agents:
 **Objective**: Capture screenshots of the UI
 
 **Actions**:
-1. Launch the **playwright-tester** agent with these instructions:
+1. Launch the **playwright-test-generator** agent with --type=ui-validation:
 
 ```
 Please automate UI testing for the [{page-name}] page:
@@ -93,7 +93,7 @@ Return the following information:
 - Any issues encountered
 ```
 
-2. Wait for playwright-tester to complete
+2. Wait for playwright-test-generator to complete
 3. Verify screenshots were created successfully
 
 ### Phase 3: UI Analysis
@@ -107,7 +107,7 @@ Return the following information:
 Please analyze the UI screenshots against our style guide documentation:
 
 **Screenshots to analyze**:
-{List screenshot paths from playwright-tester}
+{List screenshot paths from playwright-test-generator}
 
 **Style guide location**: `docs/style-guide/`
 
@@ -294,7 +294,7 @@ Please choose an option or ask questions about specific violations.
 - Explain next steps clearly
 
 ### Error Handling
-- If playwright-tester fails: Report and suggest solutions
+- If playwright-test-generator fails: Report and suggest solutions
 - If style guide missing: Suggest creating it first
 - If screenshots can't be captured: Debug with user
 
@@ -323,7 +323,7 @@ If style guide doesn't exist:
 
 ### Authentication Required
 If page needs login:
-- playwright-tester will ask for credentials
+- playwright-test-generator will ask for credentials
 - Pass credentials securely
 - Handle session management
 

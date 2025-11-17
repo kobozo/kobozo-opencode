@@ -19,7 +19,7 @@ Automatically refactor hardcoded strings to use i18n translation functions.
 ## Execution Flow
 
 ### Phase 1: Scan & Extract
-1. Launch **translation-extractor** agent
+1. Launch **i18n-manager** agent with --action=migrate
 2. Scan files for hardcoded strings:
    - JSX/TSX text content
    - HTML template strings

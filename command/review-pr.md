@@ -36,10 +36,10 @@ Run a comprehensive pull request review using multiple specialized agents, each 
 
    Based on changes:
    - **Always applicable**: code-reviewer (general quality)
-   - **If test files changed**: pr-test-analyzer
-   - **If comments/docs added**: comment-analyzer
-   - **If error handling changed**: silent-failure-hunter
-   - **If types added/modified**: type-design-analyzer
+   - **If test files changed**: code-reviewer --focus=tests (or test-analyzer --mode=pr-review)
+   - **If comments/docs added**: code-reviewer --focus=comments
+   - **If error handling changed**: code-reviewer --focus=errors
+   - **If types added/modified**: code-reviewer --focus=types
    - **After passing review**: code-simplifier (polish and refine)
 
 5. **Launch Review Agents**
@@ -114,30 +114,13 @@ Run a comprehensive pull request review using multiple specialized agents, each 
 
 ## Agent Descriptions:
 
-**comment-analyzer**:
-- Verifies comment accuracy vs code
-- Identifies comment rot
-- Checks documentation completeness
-
-**pr-test-analyzer**:
-- Reviews behavioral test coverage
-- Identifies critical gaps
-- Evaluates test quality
-
-**silent-failure-hunter**:
-- Finds silent failures
-- Reviews catch blocks
-- Checks error logging
-
-**type-design-analyzer**:
-- Analyzes type encapsulation
-- Reviews invariant expression
-- Rates type design quality
-
-**code-reviewer**:
-- Checks CLAUDE.md compliance
-- Detects bugs and issues
-- Reviews general code quality
+**code-reviewer** (with focus modes):
+- **--focus=comments**: Verifies comment accuracy vs code, identifies comment rot
+- **--focus=tests**: Reviews behavioral test coverage and quality (replaces pr-test-analyzer)
+- **--focus=errors**: Finds silent failures, reviews catch blocks (replaces silent-failure-hunter)
+- **--focus=types**: Analyzes type encapsulation and invariants (replaces type-design-analyzer)
+- **--focus=all**: Complete code review including CLAUDE.md compliance, bugs, and quality
+- Default mode checks CLAUDE.md compliance and detects bugs
 
 **code-simplifier**:
 - Simplifies complex code

@@ -15,7 +15,7 @@ Generates comprehensive test coverage analysis with actionable recommendations.
 ## Execution Flow
 
 ### Phase 1: Run Coverage
-1. Launch **coverage-analyzer** agent
+1. Launch **test-analyzer** agent with --mode=coverage
 2. Execute coverage tools (Jest, pytest, etc.)
 3. Parse coverage reports
 

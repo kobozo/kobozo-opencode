@@ -39,7 +39,7 @@ Initial request: $ARGUMENTS
 **Goal**: Understand relevant existing code and patterns at both high and low levels
 
 **Actions**:
-1. Launch 2-3 code-explorer agents in parallel. Each agent should:
+1. Launch 2-3 code-analyst agents in parallel with --mode=exploration. Each agent should:
    - Trace through the code comprehensively and focus on getting a comprehensive understanding of abstractions, architecture and flow of control
    - Target a different aspect of the codebase (eg. similar features, high level understanding, architectural understanding, user experience, etc)
    - Include a list of 5-10 key files to read
@@ -77,7 +77,7 @@ If the user says "whatever you think is best", provide your recommendation and g
 
 **Actions**:
 1. Based on codebase exploration and user answers, identify key libraries/frameworks to research
-2. Launch 1-2 code-snippet-researcher agents in parallel targeting different libraries or aspects:
+2. Launch 1-2 code-analyst agents with --mode=research in parallel targeting different libraries or aspects:
    - Research specific library APIs needed for the feature
    - Find best practices and common patterns
    - Identify functional programming patterns in library usage
@@ -115,18 +115,31 @@ If the user says "whatever you think is best", provide your recommendation and g
 
 **Actions**:
 1. Wait for explicit user approval
-2. Read all relevant files identified in previous phases
-3. Implement following chosen architecture with **functional programming**:
-   - Use **pure functions** - functions without side effects that return the same output for the same input
-   - Prefer **immutability** - avoid mutating data, use spread operators, Object.freeze(), or immutable data structures
-   - Apply **function composition** - build complex behavior by composing small, focused functions
-   - Use **declarative patterns** - map, filter, reduce, pipe, compose instead of loops
-   - Minimize **side effects** - isolate I/O, state changes, and mutations at boundaries
-   - Leverage **higher-order functions** - functions that take or return other functions
-   - Avoid **classes and OOP patterns** unless required by framework constraints
-4. Follow codebase conventions strictly
-5. Write clean, well-documented code with clear function signatures
-6. Update todos as you progress
+2. Launch **code-implementer** agent with --mode=feature:
+   ```
+   Implement the feature based on the architecture blueprint from code-architect.
+   
+   **Architecture Blueprint**: {Pass the blueprint from Phase 5}
+   
+   **Implementation Requirements**:
+   - Follow the build sequence specified in the blueprint
+   - Use functional programming principles (pure functions, immutability, composition)
+   - Implement proper error handling with Result types
+   - Add JSDoc documentation for all public functions
+   - Follow codebase conventions discovered in earlier phases
+   - Handle all edge cases identified
+   - Create clean, testable code
+   
+   **Deliverables**:
+   - All files created/modified as specified in blueprint
+   - Unit tests for pure functions
+   - Progress tracking with TodoWrite
+   - Summary of what was implemented
+   
+   Please implement the feature following the blueprint exactly.
+   ```
+3. Monitor progress and provide guidance if needed
+4. Review implementation summary from agent
 
 ---
 

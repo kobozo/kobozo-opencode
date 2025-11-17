@@ -69,7 +69,7 @@ Use `/generate-playwright-auth-tests` instead for:
 
 **Objective**: Create Page Object Model classes
 
-**Action**: Launch **page-object-builder** agent to:
+**Action**: Launch **playwright-test-generator** agent with --type=e2e to:
 - Generate POM classes for each page in the flow
 - Create shared component page objects (modals, dropdowns, etc.)
 - Build helper utilities
@@ -464,7 +464,7 @@ Your task as the orchestrator is to:
    - Identify test scenarios
 
 3. **Generate Page Objects**:
-   - Launch `page-object-builder` agent
+   - Launch `playwright-test-generator` agent with --type=e2e
    - Create POM classes for all pages
    - Build helper utilities
 

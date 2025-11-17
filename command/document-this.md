@@ -24,7 +24,7 @@ Create professional technical documentation for any subject and save it to the `
 ## Execution Flow
 
 ### Phase 1: Subject Analysis
-1. Launch **technical-writer** agent
+1. Launch **documentation-writer** agent with --type=wiki
 2. Analyze the subject to be documented:
    - Search for relevant code files
    - Read implementation details

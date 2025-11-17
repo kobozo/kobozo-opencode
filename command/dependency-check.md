@@ -14,7 +14,7 @@ Fast scan of dependencies for known vulnerabilities.
 
 ## Execution Flow
 
-1. Launch **dependency-scanner** agent
+1. Launch **dependency-analyzer** agent with --mode=vulnerabilities
 2. Run security audit tools (npm audit, etc.)
 3. Parse and prioritize vulnerabilities
 4. Provide fix commands

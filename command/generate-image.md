@@ -82,7 +82,7 @@ This command orchestrates four specialized agents in sequence:
 
 **Output**: Structured requirements specification
 
-### Phase 2: Style Context Extraction (style-context-extractor agent)
+### Phase 2: Style Context Extraction (style-guide-manager agent with --action=extract-context)
 
 **Purpose**: Extract design system tokens from style guide
 
@@ -533,7 +533,7 @@ Your task as the orchestrator is to:
 
 1. **Use TodoWrite** to track each phase
 2. **Launch requirements-analyzer** agent first
-3. **Conditionally launch style-context-extractor** if appropriate
+3. **Conditionally launch style-guide-manager** with --action=extract-context if appropriate
 4. **Launch prompt-engineer** agent with all context
 5. **Present prompts** to user for approval
 6. **Launch image-generator** agent after approval

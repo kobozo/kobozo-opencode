@@ -16,9 +16,9 @@ Create or update design system documentation by:
 
 ## Workflow Overview
 
-This command coordinates two specialized agents:
-1. **style-guide-builder** - Creates new style guide documentation from scratch
-2. **style-guide-updater** - Updates existing documentation with diffs
+This command uses the **style-guide-manager** agent:
+- `--action=create` - Creates new style guide documentation from scratch
+- `--action=update` - Updates existing documentation with diffs
 
 ## Usage
 
@@ -51,8 +51,8 @@ No arguments needed - the workflow is interactive.
      - `ux-rules.md`
 
 3. Determine workflow path:
-   - **If no style guide exists**: New creation (use style-guide-builder)
-   - **If style guide exists**: Update mode (use style-guide-updater)
+   - **If no style guide exists**: New creation (use style-guide-manager --action=create)
+   - **If style guide exists**: Update mode (use style-guide-manager --action=update)
    - **If partially exists**: Ask user whether to complete or update
 
 ### Phase 2A: New Style Guide Creation
@@ -62,7 +62,7 @@ No arguments needed - the workflow is interactive.
 **Actions**:
 1. Inform user that you're creating new style guide documentation
 
-2. Launch the **style-guide-builder** agent with these instructions:
+2. Launch the **style-guide-manager** agent with --action=create:
 
 ```
 Please create comprehensive design system documentation for this project.
@@ -97,7 +97,7 @@ Please create comprehensive design system documentation for this project.
 Please be thorough in your interview - gather all necessary information before creating the documents. Use TodoWrite to track the interview and creation process.
 ```
 
-3. Wait for style-guide-builder to complete
+3. Wait for style-guide-manager to complete
 
 4. Review the created documentation
 
@@ -126,7 +126,7 @@ Please be thorough in your interview - gather all necessary information before c
    Please describe what you'd like to change.
    ```
 
-3. Launch the **style-guide-updater** agent with these instructions:
+3. Launch the **style-guide-manager** agent with --action=update:
 
 ```
 Please update the existing design system documentation.
@@ -168,7 +168,7 @@ Please update the existing design system documentation.
 **IMPORTANT**: Always show diffs and get user approval before making any changes.
 ```
 
-4. Wait for style-guide-updater to complete
+4. Wait for style-guide-manager to complete
 
 5. Review the changes made
 
@@ -353,7 +353,7 @@ Any pages scoring < 8/10 will need updates to match the new style guide.
 ## Best Practices
 
 ### Agent Coordination
-- Choose the right agent based on context (builder vs. updater)
+- Choose the right action based on context (create vs. update)
 - Provide clear, complete instructions
 - Pass user intent accurately
 
@@ -376,7 +376,7 @@ Any pages scoring < 8/10 will need updates to match the new style guide.
 
 - **Always use TodoWrite** to track progress through phases
 - **Determine creation vs. update early** - it changes the entire workflow
-- **Coordinate the right agent** - builder for new, updater for changes
+- **Use the right action** - --action=create for new, --action=update for changes
 - **Provide clear guidance** - help users understand how to use their new documentation
 - **Connect to /ui-check** - emphasize how style guides enable validation
 - **Encourage maintenance** - style guides should evolve with the product
@@ -392,16 +392,16 @@ If only some files exist:
 ### Empty Files
 If files exist but are empty:
 - Treat as new creation
-- Use style-guide-builder
+- Use style-guide-manager --action=create
 
 ### Custom Sections
 If existing docs have custom sections:
-- style-guide-updater will preserve them
+- style-guide-manager --action=update will preserve them
 - Ensure they're not lost in updates
 
 ### Multiple Updates
 If user wants to update multiple times:
-- Run updater for each update
+- Run manager with --action=update for each update
 - Show cumulative changes
 - Ensure consistency
 

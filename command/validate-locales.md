@@ -15,7 +15,7 @@ Comprehensive validation of translation files across all languages.
 ## Execution Flow
 
 ### Phase 1: Completeness Check
-1. Launch **locale-validator** agent
+1. Launch **i18n-manager** agent with --action=validate
 2. Load all translation files
 3. Compare against base language (usually English)
 4. Calculate completion percentage per locale
@@ -34,7 +34,7 @@ Comprehensive validation of translation files across all languages.
 4. Detect malformed structures
 
 ### Phase 4: Optimization & Reporting
-1. Launch **translation-optimizer** agent
+1. Launch **i18n-manager** agent with --action=optimize
 2. Identify consolidation opportunities (duplicate strings)
 3. Suggest namespace splitting for large files
 4. Recommend performance optimizations

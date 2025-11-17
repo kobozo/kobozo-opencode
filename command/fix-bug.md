@@ -81,7 +81,7 @@ I need some information to analyze this bug effectively:
 **Objective**: Deep analysis to identify root cause and impact.
 
 ### Actions
-1. **Launch 1-2 bug-analyzer agents** to:
+1. **Launch 1-2 code-analyst agents with --mode=bug-analysis** to:
    - Trace execution paths
    - Identify root cause
    - Map affected components
@@ -166,7 +166,7 @@ Should we log these events for monitoring?
 **Objective**: Design comprehensive fix approach with trade-offs.
 
 ### Actions
-1. **Launch 1-2 fix-implementer agents** to:
+1. **Launch 1-2 code-architect agents** to:
    - Analyze codebase patterns
    - Evaluate multiple fix approaches
    - Provide implementation blueprint
@@ -237,20 +237,37 @@ Do you approve Approach B, or would you prefer a different approach?
 ### Actions
 1. **Wait for explicit user approval** of fix approach
 
-2. **Read relevant files** identified in blueprint
-
-3. **Implement the fix**:
+2. Launch **code-implementer** agent with --mode=fix:
+   ```
+   Implement the bug fix based on the implementation blueprint from code-architect.
+   
+   **Fix Blueprint**: {Pass the blueprint from Phase 4}
+   
+   **Bug Context**: {Pass bug analysis from Phase 2}
+   
+   **Implementation Requirements**:
    - Follow the implementation blueprint exactly
-   - Add validation and error handling
-   - Update types if needed
-   - Follow codebase conventions
-
-4. **Write tests**:
-   - Unit tests for fixed functions
-   - Edge case tests
+   - Add comprehensive validation and error handling
+   - Handle all identified edge cases
+   - Update type definitions if needed
+   - Follow codebase conventions strictly
+   - Write unit tests for the fix
+   - Write tests for edge cases
+   - Add descriptive error messages
+   
+   **Deliverables**:
+   - All files modified as specified in blueprint
+   - Unit tests covering the bug and edge cases
    - Integration tests if needed
+   - Progress tracking with TodoWrite
+   - Summary of what was fixed
+   
+   Please implement the fix following the blueprint exactly.
+   ```
 
-5. **Keep user informed** of progress via todo updates
+3. Monitor progress and provide guidance if needed
+
+4. Review implementation summary from agent
 
 ### Implementation Checklist
 ```markdown

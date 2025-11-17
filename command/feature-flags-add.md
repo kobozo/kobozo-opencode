@@ -33,7 +33,7 @@ This command:
 
 **Objective**: Understand the existing feature flag system
 
-**Action**: Launch **flag-system-detector** agent to:
+**Action**: Launch **feature-flag-manager** agent with --action=detect to:
 - Detect existing feature flag implementation
 - Identify system type (service, env, config, database, pub/sub, custom)
 - Extract naming conventions
@@ -74,7 +74,7 @@ This command:
 
 **Objective**: Generate code to add the flag
 
-**Action**: Launch **flag-code-generator** agent with:
+**Action**: Launch **feature-flag-manager** agent with --action=add and:
 - Detection report from Phase 1
 - Flag configuration from Phase 2
 - Instruction to integrate with existing system
@@ -216,7 +216,7 @@ await redis.publish('feature-flags:update', JSON.stringify({
 
 **Objective**: Generate tests for the new flag
 
-**Action**: Launch **flag-code-generator** agent to create tests
+**Action**: Launch **feature-flag-manager** agent with --action=add to create tests
 
 **Test Types Generated**:
 
@@ -298,7 +298,7 @@ await redis.publish('feature-flags:update', JSON.stringify({
 
 **Objective**: Verify the flag was added correctly
 
-**Action**: Launch **flag-validator** agent to:
+**Action**: Launch **feature-flag-manager** agent with --action=validate to:
 - Verify flag was added to correct location
 - Check naming conventions followed
 - Ensure no duplicate flags
@@ -497,13 +497,13 @@ const evaluateNewUI = (config: FlagConfig): boolean => {
 Your task as the orchestrator is to:
 
 1. **Use TodoWrite** to track each phase
-2. **Launch flag-system-detector** to understand existing system
+2. **Launch feature-flag-manager** with --action=detect to understand existing system
 3. **Validate flag name** and check for duplicates
 4. **Parse command options** or ask user for missing details
-5. **Launch flag-code-generator** to add the flag
-6. **Launch flag-code-generator** again for tests
+5. **Launch feature-flag-manager** with --action=add to add the flag
+6. **Launch feature-flag-manager** with --action=add again for tests
 7. **Update documentation** as needed
-8. **Launch flag-validator** to verify correctness
+8. **Launch feature-flag-manager** with --action=validate to verify correctness
 9. **Optionally run tests** if user confirms
 10. **Provide usage guidance** and summary
 

@@ -35,7 +35,7 @@ Perform a comprehensive clean code analysis including duplication detection, cod
 - Clone types (exact, renamed, near-miss, semantic)
 
 ### Phase 2: Code Smell Detection
-1. Launch **code-smell-analyzer** agent
+1. Launch **code-reviewer** agent with --focus=smells
 2. Detect common code smells:
    - Long methods/classes
    - Primitive obsession

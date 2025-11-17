@@ -51,7 +51,7 @@ Perform a complete architectural analysis of your codebase with dependency graph
 - Deployment architecture diagram
 
 ### Phase 3: Documentation Generation
-1. Launch **documentation-generator** agent
+1. Launch **documentation-writer** agent with --type=architecture
 2. Compile analysis results
 3. Generate architecture overview document
 4. Create component documentation

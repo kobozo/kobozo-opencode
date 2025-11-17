@@ -1,0 +1,20 @@
+AGENTS guide for OpenCode config repo
+- Repo type: Markdown/JSON plugin defs; no build artifacts.
+- Install deps: `pnpm install` (only `@opencode-ai/plugin`); no lockfile.
+- Build command: none; do not invent builds without approval.
+- Lint: none configured; add a script before running any lint tool.
+- Tests: none available; do not fabricate test commands; no single-test flow.
+- Feature-dev command: launch parallel code-analyst/code-architect runs; delegate implementation to the code-implementer agent; keep agents concurrent whenever possible.
+- Node tooling: prefer pnpm; avoid yarn/npm unless user asks.
+- Agent/command files: keep YAML frontmatter `description` and structured Markdown sections.
+- Formatting: 2-space JSON, ~100-char wrap, ASCII text only.
+- Naming: kebab-case filenames in `agent/` and `command/`; headings Title Case.
+- Imports/modules: ES modules, `const`/`let`, avoid default exports unless necessary.
+- Types: be explicit; avoid `any`; narrow params/returns.
+- Error handling: explicit failures, actionable messages, no silent fallbacks.
+- Logging: concise, redact sensitive data, avoid noisy debug output.
+- Comments: only when non-obvious; keep markdown lists succinct.
+- Structure: preserve existing `opencode.json` ordering/styling; keep `instructions` pointing to AGENTS.md.
+- Dependencies: add only when necessary; document new binaries/scripts.
+- Cursor/Copilot: none present (`.cursor/`, `.cursorrules`, `.github/copilot-instructions.md` absent).
+- Ask user before introducing new tooling/automation when unsure.

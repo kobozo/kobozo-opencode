@@ -36,7 +36,7 @@ Generate complete architecture documentation package with ADRs, component specif
 - `docs/architecture/patterns.md` - Architectural patterns documentation
 
 #### Phase 2: Component Documentation
-1. Launch **documentation-generator** agent
+1. Launch **documentation-writer** agent with --type=architecture
 2. Identify all major components/services
 3. Generate component documentation for each
 4. Document API contracts and interfaces
@@ -73,7 +73,7 @@ Generate complete architecture documentation package with ADRs, component specif
 
 Create a new Architectural Decision Record:
 
-1. Launch **documentation-generator** agent
+1. Launch **documentation-writer** agent with --type=architecture
 2. Present ADR template
 3. Guide user through sections
 4. Generate ADR with proper numbering
@@ -94,7 +94,7 @@ Create a new Architectural Decision Record:
 
 Generate documentation for a specific component:
 
-1. Launch **documentation-generator** agent
+1. Launch **documentation-writer** agent with --type=architecture
 2. Analyze component structure
 3. Extract public APIs/interfaces
 4. Map dependencies

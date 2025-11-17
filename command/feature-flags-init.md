@@ -32,7 +32,7 @@ This command analyzes your codebase to understand your architecture, then genera
 
 **Objective**: Understand the current state and determine best approach
 
-**Action**: Launch **flag-system-detector** agent to:
+**Action**: Launch **feature-flag-manager** agent with --action=detect to:
 - Detect any existing feature flag implementations
 - Analyze technology stack (frontend, backend, database)
 - Identify architecture patterns (monolith, microservices, serverless)
@@ -194,7 +194,7 @@ Please implement this feature flag system following the functional programming p
 
 **Objective**: Verify implementation is correct and secure
 
-**Action**: Launch **flag-validator** agent to:
+**Action**: Launch **feature-flag-manager** agent with --action=validate to:
 - Validate implementation correctness
 - Check security (no exposed API keys)
 - Verify performance (caching, efficiency)
@@ -435,12 +435,12 @@ const evaluateFlag = (flag: FlagConfig, context: Context): boolean // Pure
 Your task as the orchestrator is to:
 
 1. **Use TodoWrite** to track each phase clearly
-2. **Launch flag-system-detector** agent with project context
+2. **Launch feature-flag-manager** agent with --action=detect and project context
 3. **Present recommendations** to user and get approval
 4. **Invoke /feature-dev** with detailed specification
    - Use natural language to invoke the command
    - Format: "Execute /feature-dev command with the following specification: [detailed spec]"
-5. **Launch flag-validator** agent after implementation
+5. **Launch feature-flag-manager** agent with --action=validate after implementation
 6. **Handle validation issues** with auto-fix or guidance
 7. **Verify dependencies** and offer to install
 8. **Generate documentation** and setup guide

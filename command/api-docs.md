@@ -86,7 +86,7 @@ Generate complete API documentation by:
 ### Phase 4: Generate Human-Readable Documentation
 
 **Actions**:
-1. Launch **docs-writer** agent:
+1. Launch **documentation-writer** agent with --type=api:
    ```
    Create human-readable API documentation:
 
@@ -108,7 +108,7 @@ Generate complete API documentation by:
    - Easy to navigate structure
    ```
 
-2. Wait for docs-writer to complete
+2. Wait for documentation-writer to complete
 3. Review generated documentation
 
 ### Phase 5: Summary & Next Steps

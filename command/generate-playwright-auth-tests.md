@@ -46,7 +46,7 @@ This command analyzes your codebase to understand your authentication flow, dete
 
 **Objective**: Create reusable Page Object classes
 
-**Action**: Launch **page-object-builder** agent with the analysis report to:
+**Action**: Launch **playwright-test-generator** agent with --type=auth and the analysis report to:
 - Generate Page Object Model classes (LoginPage, OTPPage, DashboardPage, etc.)
 - Create authentication fixtures for OTP retrieval
 - Set up test data configuration
@@ -58,7 +58,7 @@ This command analyzes your codebase to understand your authentication flow, dete
 
 **Objective**: Generate comprehensive Playwright tests
 
-**Action**: Launch **playwright-auth-generator** agent to:
+**Action**: Launch **playwright-test-generator** agent with --type=auth to:
 - Create test files for authentication flows
 - Generate setup script for authentication state
 - Write Playwright configuration
@@ -218,14 +218,16 @@ User: /generate-playwright-auth-tests
 └────────────┬────────────────────────────┘
              ↓ (AuthAnalysisReport)
 ┌─────────────────────────────────────────┐
-│ Phase 2: page-object-builder            │
+│ Phase 2: playwright-test-generator      │
+│         (--type=auth)                   │
 │ - Generate Page Object classes          │
 │ - Create authentication fixtures        │
 │ - Build OTP retrieval helpers           │
 └────────────┬────────────────────────────┘
              ↓ (PageObjects + Fixtures)
 ┌─────────────────────────────────────────┐
-│ Phase 3: playwright-auth-generator      │
+│ Phase 3: playwright-test-generator      │
+│         (--type=auth)                   │
 │ - Generate test files                   │
 │ - Create Playwright config              │
 │ - Setup authentication state            │
@@ -260,8 +262,8 @@ Your task as the orchestrator is to:
 1. **Use TodoWrite** to track each phase
 2. **Launch agents sequentially** with proper inputs:
    - `auth-pattern-detector` with base URL (if provided)
-   - `page-object-builder` with analysis report
-   - `playwright-auth-generator` with analysis + page objects
+   - `playwright-test-generator` with --type=auth and analysis report
+   - `playwright-test-generator` with --type=auth and analysis + page objects
 3. **Handle agent outputs**:
    - Parse analysis report from Phase 1
    - Pass report to Phase 2 agent

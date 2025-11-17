@@ -34,7 +34,7 @@ This command:
 
 **Objective**: Identify the feature flag system
 
-**Action**: Launch **flag-system-detector** agent to:
+**Action**: Launch **feature-flag-manager** agent with --action=detect to:
 - Detect feature flag implementation type
 - Locate flag definitions
 - Find flag evaluation functions
@@ -493,7 +493,7 @@ const pipeline = pipe(
 Your task as the orchestrator is to:
 
 1. **Use TodoWrite** to track phases
-2. **Launch flag-system-detector** to identify system
+2. **Launch feature-flag-manager** with --action=list to identify system
 3. **Retrieve flags** based on detected system type
 4. **Analyze usage** across codebase with Grep
 5. **Format output** according to user options

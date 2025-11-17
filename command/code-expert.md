@@ -146,4 +146,4 @@ This plugin requires ChunkHound to be installed and configured:
 
 ARGUMENTS: {{ARGUMENTS}}
 
-Use the Task tool to launch the code-expert agent with the research topic: "{{ARGUMENTS}}"
+Use the Task tool to launch the code-analyst agent with --mode=research and the research topic: "{{ARGUMENTS}}"

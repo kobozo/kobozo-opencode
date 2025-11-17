@@ -18,7 +18,7 @@ Extract hardcoded strings and generate i18n translation files.
 ## Execution Flow
 
 ### Phase 1: Framework Detection & String Extraction
-1. Launch **translation-extractor** agent
+1. Launch **i18n-manager** agent with --action=extract
 2. Detect i18n framework (React i18next, Vue I18n, Angular, Django, Rails, Flutter)
 3. Scan source files for:
    - Hardcoded strings in JSX/templates
